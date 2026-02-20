@@ -124,13 +124,13 @@
     <!-- Header -->
     <header class="app-header">
         <div class="header-content">
-            <button class="info-icon-btn" id="infoBtn" aria-label="About this app">ⓘ</button>
             <h1 class="app-title">
                 <span class="title-icon" aria-hidden="true">🌱</span>
                 <span class="title-text">Recovery Journey</span>
             </h1>
             <p class="app-subtitle" id="identitySubtitle">One day at a time, one step forward</p>
         </div>
+        <button class="info-icon-btn" id="infoBtn" aria-label="About this app">ⓘ</button>
     </header>
 
     <main class="app-main">
@@ -193,6 +193,39 @@
             </div>
         </section>
 
+        <!-- Stats Overview Card -->
+        <section class="card stats-card" aria-labelledby="stats-title">
+            <div class="card-header">
+                <h2 id="stats-title" class="card-title">Your Journey</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalResets">0</div>
+                    <div class="stat-label">Fresh Starts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="bestStreak">0</div>
+                    <div class="stat-label">Best Streak</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalDays">0</div>
+                    <div class="stat-label">Total Days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="action-section">
+            <button class="btn btn-secondary" id="exportBtn" aria-label="Export your data">
+                <span class="btn-icon" aria-hidden="true">📤</span>
+                <span>Export Data</span>
+            </button>
+            <button class="btn btn-danger" id="resetBtn" aria-label="Reset progress">
+                <span class="btn-icon" aria-hidden="true">🔄</span>
+                <span>Reset Progress</span>
+            </button>
+        </div>
+
         <!-- Daily Reflection Card -->
         <section class="card reflection-card" aria-labelledby="reflection-title">
             <div class="card-header">
@@ -226,39 +259,6 @@
                 </button>
             </div>
         </section>
-
-        <!-- Stats Overview Card -->
-        <section class="card stats-card" aria-labelledby="stats-title">
-            <div class="card-header">
-                <h2 id="stats-title" class="card-title">Your Journey</h2>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="totalResets">0</div>
-                    <div class="stat-label">Fresh Starts</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="bestStreak">0</div>
-                    <div class="stat-label">Best Streak</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="totalDays">0</div>
-                    <div class="stat-label">Total Days</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Action Buttons -->
-        <div class="action-section">
-            <button class="btn btn-secondary" id="exportBtn" aria-label="Export your data">
-                <span class="btn-icon" aria-hidden="true">📤</span>
-                <span>Export Data</span>
-            </button>
-            <button class="btn btn-danger" id="resetBtn" aria-label="Reset progress">
-                <span class="btn-icon" aria-hidden="true">🔄</span>
-                <span>Reset Progress</span>
-            </button>
-        </div>
 
     </main>
 

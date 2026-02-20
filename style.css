@@ -1177,18 +1177,27 @@ body {
 .info-icon-btn {
     position: absolute;
     top: var(--spacing-lg);
-    left: var(--spacing-lg);
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.5);
-    font-size: 1.25rem;
+    right: var(--spacing-lg);
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    font-size: 1.125rem;
     cursor: pointer;
-    transition: color var(--transition-base);
-    padding: var(--spacing-xs);
+    transition: all var(--transition-base);
+    padding: var(--spacing-xs) var(--spacing-sm);
     line-height: 1;
+    border-radius: var(--radius-full);
+    min-width: 36px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.info-icon-btn:hover { color: rgba(255,255,255,0.9); }
+.info-icon-btn:hover {
+    background: rgba(255,255,255,0.25);
+    color: var(--white);
+}
 
 .info-modal-content {
     max-width: 460px;
