@@ -1,6 +1,6 @@
 {
-  "name": "Recovery Journey - Daily Motivation Tracker",
-  "short_name": "Steel",
+  "name": "Recovery Journey",
+  "short_name": "Recovery Journey",
   "description": "Daily motivation and progress tracking for your personal growth and recovery journey",
   "start_url": "https://recoveryapp-chi.vercel.app/",
   "scope": "https://recoveryapp-chi.vercel.app/",
