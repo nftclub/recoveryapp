@@ -1,0 +1,32 @@
+{
+  "name": "Recovery Journey - Daily Motivation Tracker",
+  "short_name": "Steel",
+  "description": "Daily motivation and progress tracking for your personal growth and recovery journey",
+  "start_url": "https://recoveryapp-chi.vercel.app/",
+  "scope": "https://recoveryapp-chi.vercel.app/",
+  "display": "standalone",
+  "background_color": "#C0C0C0",
+  "theme_color": "#C0C0C0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "health",
+    "lifestyle",
+    "productivity"
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
