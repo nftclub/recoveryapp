@@ -128,6 +128,7 @@
     <!-- Header -->
     <header class="app-header">
         <div class="header-content">
+            <button class="info-icon-btn" id="infoBtn" aria-label="About this app">ⓘ</button>
             <h1 class="app-title">
                 <span class="title-icon" aria-hidden="true">🌱</span>
                 <span class="title-text">Recovery Journey</span>
@@ -368,6 +369,7 @@
                     <div class="crisis-modal-icon">🫁</div>
                     <h3 id="crisis-modal-title" class="modal-title">You reached out. That's brave.</h3>
                     <p class="modal-text">Let's slow down together. Follow the breathing guide.</p>
+                    <p class="crisis-disclaimer">This is a self-help tool. If you are in immediate danger, contact local emergency services.</p>
                 </div>
                 <div class="breathing-guide" id="breathingGuide">
                     <div class="breathing-circle" id="breathingCircle">
@@ -450,6 +452,24 @@
     </span>
     <span class="crisis-arrow">→</span>
 </button>
+
+<!-- Info Modal -->
+<div class="modal" id="infoModal" role="dialog" aria-modal="true">
+    <div class="modal-overlay" aria-hidden="true"></div>
+    <div class="modal-container">
+        <div class="modal-content info-modal-content">
+            <button class="modal-close-btn" id="closeInfoBtn" aria-label="Close">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">About</h3>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">A private, offline recovery companion designed to help you track progress and stay accountable.</p>
+                <p class="modal-text">This is a self-help tool. It does not provide medical advice, therapy, or emergency services. If you are in immediate danger, contact your local emergency services.</p>
+                <p class="info-data-note">All data stays on your device. No accounts. No servers. No tracking.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="script.js"></script>
 <script>

@@ -287,6 +287,7 @@ body {
     text-align: center;
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-lg) 0;
+    position: relative;
 }
 
 .header-content { animation: fadeIn 0.8s ease-out; }
@@ -1164,8 +1165,45 @@ body {
     position: relative;
 }
 
-.crisis-phase { display: none; }
-.crisis-phase.active { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+.crisis-disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.info-icon-btn {
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color var(--transition-base);
+    padding: var(--spacing-xs);
+    line-height: 1;
+}
+
+.info-icon-btn:hover { color: rgba(255,255,255,0.9); }
+
+.info-modal-content {
+    max-width: 460px;
+    position: relative;
+}
+
+.info-data-note {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--gray-200);
+    font-weight: 500;
+}
 
 .crisis-modal-header { text-align: center; }
 

@@ -1000,6 +1000,13 @@ function attachAllListeners() {
     // Premium (placeholder)
     DOM.premiumBtn?.addEventListener('click', () => showToast('Premium coming soon! 🚀', 3000));
 
+    // Info modal
+    document.getElementById('infoBtn')?.addEventListener('click', () => openModal('infoModal'));
+    document.getElementById('closeInfoBtn')?.addEventListener('click', () => closeModal('infoModal'));
+    document.getElementById('infoModal')?.addEventListener('click', e => {
+        if (e.target === document.getElementById('infoModal')) closeModal('infoModal');
+    });
+
     // Keyboard
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
