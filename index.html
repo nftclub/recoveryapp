@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Recovery Journey - Daily motivation and progress tracking for your personal growth">
+    <meta name="theme-color" content="#667eea">
+    <title>Recovery Journey - Stay Strong</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Recovery Journey">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== ONBOARDING OVERLAY ===================== -->
+<div class="onboarding-overlay" id="onboardingOverlay">
+    <div class="onboarding-container">
+
+        <!-- Step 1: Identity -->
+        <div class="onboarding-step active" id="step1">
+            <div class="onboarding-header">
+                <div class="onboarding-logo">🌱</div>
+                <h1 class="onboarding-title">Welcome to Recovery Journey</h1>
+                <p class="onboarding-subtitle">Let's personalize your path. Who are you becoming?</p>
+            </div>
+            <div class="identity-grid">
+                <button class="identity-card" data-identity="healthier">
+                    <span class="identity-icon">💪</span>
+                    <span class="identity-label">Becoming Healthier</span>
+                    <span class="identity-desc">Body and mind renewal</span>
+                </button>
+                <button class="identity-card" data-identity="discipline">
+                    <span class="identity-icon">🎯</span>
+                    <span class="identity-label">Rebuilding Discipline</span>
+                    <span class="identity-desc">Structure and consistency</span>
+                </button>
+                <button class="identity-card" data-identity="freedom">
+                    <span class="identity-icon">🦋</span>
+                    <span class="identity-label">Breaking Free</span>
+                    <span class="identity-desc">Liberation from old patterns</span>
+                </button>
+                <button class="identity-card" data-identity="control">
+                    <span class="identity-icon">⚡</span>
+                    <span class="identity-label">Reclaiming Control</span>
+                    <span class="identity-desc">Mastery over your choices</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: WHY -->
+        <div class="onboarding-step" id="step2">
+            <div class="onboarding-header">
+                <div class="onboarding-logo">❤️</div>
+                <h2 class="onboarding-title">What drives you?</h2>
+                <p class="onboarding-subtitle">Your reason will be your anchor on hard days.</p>
+            </div>
+            <div class="why-grid">
+                <button class="why-card" data-why="health">
+                    <span class="why-icon">🏃</span>
+                    <span class="why-label">Health</span>
+                </button>
+                <button class="why-card" data-why="confidence">
+                    <span class="why-icon">✨</span>
+                    <span class="why-label">Confidence</span>
+                </button>
+                <button class="why-card" data-why="relationship">
+                    <span class="why-icon">👨‍👩‍👧</span>
+                    <span class="why-label">Relationships</span>
+                </button>
+                <button class="why-card" data-why="money">
+                    <span class="why-icon">💰</span>
+                    <span class="why-label">Money</span>
+                </button>
+                <button class="why-card" data-why="discipline">
+                    <span class="why-icon">🎯</span>
+                    <span class="why-label">Discipline</span>
+                </button>
+                <button class="why-card" data-why="custom">
+                    <span class="why-icon">✍️</span>
+                    <span class="why-label">My Own Reason</span>
+                </button>
+            </div>
+            <div class="custom-why-container" id="customWhyContainer" style="display:none;">
+                <input type="text" class="custom-why-input" id="customWhyInput" placeholder="Write your reason here..." maxlength="100">
+            </div>
+            <button class="btn btn-primary onboarding-next" id="step2Next" disabled>Continue →</button>
+        </div>
+
+        <!-- Step 3: Ready -->
+        <div class="onboarding-step" id="step3">
+            <div class="onboarding-header">
+                <div class="onboarding-logo animate-ready">🚀</div>
+                <h2 class="onboarding-title">You're ready.</h2>
+                <p class="onboarding-subtitle" id="readySummary">Your journey begins now.</p>
+            </div>
+            <div class="ready-features">
+                <div class="ready-feature">
+                    <span>📊</span><span>Track your streak & growth score</span>
+                </div>
+                <div class="ready-feature">
+                    <span>🆘</span><span>Crisis Mode always available</span>
+                </div>
+                <div class="ready-feature">
+                    <span>💡</span><span>Daily reflections & urge tracking</span>
+                </div>
+                <div class="ready-feature">
+                    <span>🏆</span><span>Milestone celebrations at key days</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="startJourneyBtn">Begin My Journey</button>
+        <p class="onboarding-notif-note" id="notifNote" style="text-align:center;font-size:0.8125rem;color:var(--text-light);margin-top:0.5rem;">We'll ask for notification permission to send you personalized reminders.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ===================== MAIN APP ===================== -->
+<div class="app-container" id="mainApp" style="display:none;">
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="app-title">
+                <span class="title-icon" aria-hidden="true">🌱</span>
+                <span class="title-text">Recovery Journey</span>
+            </h1>
+            <p class="app-subtitle" id="identitySubtitle">One day at a time, one step forward</p>
+        </div>
+    </header>
+
+    <main class="app-main">
+
+        <!-- WHY Banner -->
+        <div class="why-banner" id="whyBanner">
+            <span class="why-banner-icon" id="whyBannerIcon">❤️</span>
+            <div class="why-banner-text">
+                <span class="why-banner-label">You're doing this for:</span>
+                <span class="why-banner-reason" id="whyBannerReason">Your health</span>
+            </div>
+        </div>
+
+        <!-- Level Badge -->
+        <div class="level-badge" id="levelBadge">
+            <span class="level-icon" id="levelIcon">🌱</span>
+            <div class="level-info">
+                <span class="level-name" id="levelName">Stabilizing</span>
+                <div class="level-bar-container">
+                    <div class="level-bar" id="levelBar" style="width: 10%"></div>
+                </div>
+            </div>
+            <span class="level-phase" id="levelPhase">Phase 1</span>
+        </div>
+
+        <!-- Dual Progress Card -->
+        <section class="card streak-card" aria-labelledby="streak-title">
+            <div class="card-header">
+                <h2 id="streak-title" class="card-title">Your Progress</h2>
+            </div>
+            <div class="dual-progress">
+                <!-- Clean Streak -->
+                <div class="progress-block">
+                    <div class="streak-circle">
+                        <div class="streak-number" id="streakDisplay" aria-live="polite">0</div>
+                        <div class="streak-label">Days Strong</div>
+                    </div>
+                    <div class="progress-label clean-label">🔥 Clean Streak</div>
+                </div>
+                <!-- Divider -->
+                <div class="progress-divider"></div>
+                <!-- Growth Score -->
+                <div class="progress-block">
+                    <div class="streak-circle growth-circle">
+                        <div class="streak-number growth-number" id="growthDisplay" aria-live="polite">0</div>
+                        <div class="streak-label">Growth Score</div>
+                    </div>
+                    <div class="progress-label growth-label">⭐ Never Resets</div>
+                </div>
+            </div>
+            <div class="streak-details">
+                <div class="detail-item">
+                    <span class="detail-label">Started:</span>
+                    <span class="detail-value" id="startDate">Today</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Last Check:</span>
+                    <span class="detail-value" id="lastCheck">Just now</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Reflection Card -->
+        <section class="card reflection-card" aria-labelledby="reflection-title">
+            <div class="card-header">
+                <h2 id="reflection-title" class="card-title">Today's Reflection</h2>
+            </div>
+            <div class="reflection-content">
+                <p class="reflection-question" id="reflectionQuestion">Loading today's question...</p>
+                <textarea class="reflection-input" id="reflectionInput" placeholder="Your thoughts..." maxlength="300" rows="3"></textarea>
+                <div class="reflection-footer">
+                    <span class="reflection-char-count" id="charCount">0/300</span>
+                    <button class="btn btn-primary reflection-save-btn" id="saveReflectionBtn">Save Reflection</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Urge Log Card -->
+        <section class="card urge-card" aria-labelledby="urge-title">
+            <div class="card-header">
+                <h2 id="urge-title" class="card-title">Urge Check-In</h2>
+            </div>
+            <div class="urge-content">
+                <p class="urge-question">Did you feel an urge today?</p>
+                <div class="urge-yesno">
+                    <button class="urge-btn urge-yes" id="urgeYesBtn">Yes</button>
+                    <button class="urge-btn urge-no" id="urgeNoBtn">No, all good ✓</button>
+                </div>
+                <div class="urge-details" id="urgeDetails" style="display:none;">
+                    <div class="urge-intensity">
+                        <label class="urge-label">Intensity:</label>
+                        <div class="intensity-buttons">
+                            <button class="intensity-btn" data-intensity="1">1</button>
+                            <button class="intensity-btn" data-intensity="2">2</button>
+                            <button class="intensity-btn" data-intensity="3">3</button>
+                            <button class="intensity-btn" data-intensity="4">4</button>
+                            <button class="intensity-btn" data-intensity="5">5</button>
+                        </div>
+                    </div>
+                    <div class="urge-trigger">
+                        <label class="urge-label">Trigger:</label>
+                        <div class="trigger-buttons">
+                            <button class="trigger-btn" data-trigger="stress">😤 Stress</button>
+                            <button class="trigger-btn" data-trigger="boredom">😑 Boredom</button>
+                            <button class="trigger-btn" data-trigger="loneliness">😔 Loneliness</button>
+                            <button class="trigger-btn" data-trigger="night">🌙 Night</button>
+                            <button class="trigger-btn" data-trigger="custom">✏️ Other</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="logUrgeBtn">Log Urge</button>
+                </div>
+                <!-- Weekly Insight -->
+                <div class="weekly-insight" id="weeklyInsight" style="display:none;">
+                    <h4 class="insight-title">📊 Weekly Insight</h4>
+                    <div class="insight-stats" id="insightStats"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivational Message Card -->
+        <section class="card message-card" aria-labelledby="message-title">
+            <div class="card-header">
+                <h2 id="message-title" class="card-title">Daily Inspiration</h2>
+            </div>
+            <div class="message-content">
+                <div class="message-icon" aria-hidden="true">💬</div>
+                <blockquote class="message-text" id="messageDisplay" aria-live="polite">
+                    Loading your message...
+                </blockquote>
+            </div>
+            <div class="card-actions">
+                <button class="btn btn-primary" id="newMessageBtn" aria-label="Get new motivational message">
+                    <span class="btn-icon" aria-hidden="true">✨</span>
+                    <span>New Message</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Stats Overview Card -->
+        <section class="card stats-card" aria-labelledby="stats-title">
+            <div class="card-header">
+                <h2 id="stats-title" class="card-title">Your Journey</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalResets">0</div>
+                    <div class="stat-label">Fresh Starts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="bestStreak">0</div>
+                    <div class="stat-label">Best Streak</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalDays">0</div>
+                    <div class="stat-label">Total Days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Upsell Card -->
+        <section class="card premium-card" id="premiumCard">
+            <div class="premium-badge">⭐ Premium</div>
+            <h3 class="premium-title">Unlock Your Full Potential</h3>
+            <p class="premium-desc">Advanced insights, personalized analytics, guided recovery plans & exportable reports.</p>
+            <div class="premium-features">
+                <div class="premium-feature free"><span>✓</span> Counter & Basic Tracking</div>
+                <div class="premium-feature free"><span>✓</span> Daily Inspiration</div>
+                <div class="premium-feature free"><span>✓</span> Crisis Mode</div>
+                <div class="premium-feature locked"><span>🔒</span> Advanced Insights</div>
+                <div class="premium-feature locked"><span>🔒</span> Personalized Analytics</div>
+                <div class="premium-feature locked"><span>🔒</span> Guided Recovery Plans</div>
+                <div class="premium-feature locked"><span>🔒</span> Exportable Reports</div>
+            </div>
+            <button class="btn btn-premium" id="premiumBtn">Upgrade to Premium</button>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="action-section">
+            <button class="btn btn-secondary" id="exportBtn" aria-label="Export your data">
+                <span class="btn-icon" aria-hidden="true">📤</span>
+                <span>Export Data</span>
+            </button>
+            <button class="btn btn-danger" id="resetBtn" aria-label="Reset progress">
+                <span class="btn-icon" aria-hidden="true">🔄</span>
+                <span>Reset Progress</span>
+            </button>
+        </div>
+
+    </main>
+
+    <footer class="app-footer">
+        <p class="footer-text">
+            <span class="footer-icon" aria-hidden="true">❤️</span>
+            Remember: Progress, not perfection
+        </p>
+    </footer>
+
+</div>
+
+<!-- ===================== MODALS ===================== -->
+
+<!-- Reset Modal -->
+<div class="modal" id="resetModal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-overlay" aria-hidden="true"></div>
+    <div class="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title">Start Fresh?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">This will reset your clean streak to 0. Your Growth Score and history are preserved.</p>
+                <p class="modal-subtext">Remember: Every day is a new opportunity to grow stronger.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancelBtn">Cancel</button>
+                <button class="btn btn-danger-solid" id="confirmResetBtn">Yes, Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Crisis Mode Modal -->
+<div class="modal" id="crisisModal" role="dialog" aria-labelledby="crisis-modal-title" aria-modal="true">
+    <div class="modal-overlay" aria-hidden="true"></div>
+    <div class="modal-container">
+        <div class="modal-content crisis-modal-content">
+            <button class="modal-close-btn" id="closeCrisisBtn" aria-label="Close crisis mode">✕</button>
+
+            <!-- Phase 1: Breathing -->
+            <div class="crisis-phase active" id="crisisPhase1">
+                <div class="crisis-modal-header">
+                    <div class="crisis-modal-icon">🫁</div>
+                    <h3 id="crisis-modal-title" class="modal-title">You reached out. That's brave.</h3>
+                    <p class="modal-text">Let's slow down together. Follow the breathing guide.</p>
+                </div>
+                <div class="breathing-guide" id="breathingGuide">
+                    <div class="breathing-circle" id="breathingCircle">
+                        <span class="breathing-text" id="breathingText">Breathe In</span>
+                    </div>
+                    <p class="breathing-instruction" id="breathingInstruction">4 seconds in...</p>
+                </div>
+                <div class="crisis-timer-display">
+                    <span id="crisisTimerDisplay">60</span> seconds
+                </div>
+                <button class="btn btn-primary" id="skipBreathingBtn">Skip to delay timer →</button>
+            </div>
+
+            <!-- Phase 2: Delay Timer -->
+            <div class="crisis-phase" id="crisisPhase2">
+                <div class="crisis-modal-header">
+                    <div class="crisis-modal-icon">⏱️</div>
+                    <h3 class="modal-title">Hold on for 10 minutes.</h3>
+                    <p class="modal-text">Urges peak and pass. Just wait this out.</p>
+                </div>
+                <div class="delay-timer-circle">
+                    <svg class="delay-timer-svg" viewBox="0 0 120 120">
+                        <circle class="delay-timer-bg" cx="60" cy="60" r="52"/>
+                        <circle class="delay-timer-progress" id="delayTimerProgress" cx="60" cy="60" r="52"
+                            stroke-dasharray="326.7" stroke-dashoffset="0"/>
+                    </svg>
+                    <div class="delay-timer-text">
+                        <span id="delayTimerDisplay">10:00</span>
+                        <small>remaining</small>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="skipDelayBtn">I made it through →</button>
+            </div>
+
+            <!-- Phase 3: Reflection -->
+            <div class="crisis-phase" id="crisisPhase3">
+                <div class="crisis-modal-header">
+                    <div class="crisis-modal-icon">💪</div>
+                    <h3 class="modal-title">You did it. That urge passed.</h3>
+                    <p class="modal-text">Take a moment to reflect on what helped you through.</p>
+                </div>
+                <textarea class="reflection-input" id="crisisReflectionInput" placeholder="What helped you get through this moment?..." maxlength="300" rows="4"></textarea>
+                <button class="btn btn-primary" id="saveCrisisReflectionBtn">Save & Return</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Milestone Modal -->
+<div class="modal" id="milestoneModal" role="dialog" aria-modal="true">
+    <div class="modal-overlay" aria-hidden="true"></div>
+    <div class="modal-container">
+        <div class="modal-content milestone-modal-content">
+            <div class="milestone-celebration" id="milestoneCelebration">
+                <div class="milestone-confetti" id="milestoneConfetti"></div>
+                <div class="milestone-icon" id="milestoneIcon">🏆</div>
+                <h3 class="milestone-title" id="milestoneTitle">Day 7!</h3>
+                <p class="milestone-message" id="milestoneMessage">Your brain is rewiring.</p>
+                <div class="milestone-science" id="milestoneScience"></div>
+            </div>
+            <button class="btn btn-primary" id="closeMilestoneBtn">Keep Going! 🚀</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="successToast" role="status" aria-live="polite">
+    <div class="toast-content">
+        <span class="toast-icon" aria-hidden="true">✓</span>
+        <span class="toast-message" id="toastMessage">Success!</span>
+    </div>
+</div>
+
+<!-- Fixed Floating Crisis Button — always visible, no scroll needed -->
+<button class="crisis-btn" id="crisisBtn" aria-label="Need Help - Crisis Mode">
+    <span class="crisis-icon">🆘</span>
+    <span class="crisis-text">
+        <strong>Need Help?</strong>
+        <small>Tap for immediate support</small>
+    </span>
+    <span class="crisis-arrow">→</span>
+</button>
+
+<script src="script.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(r => console.log('SW registered:', r.scope))
+                .catch(e => console.log('SW failed:', e));
+        });
+    }
+</script>
+</body>
+</html>
