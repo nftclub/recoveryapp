@@ -33,8 +33,8 @@
             </div>
             <div class="identity-grid">
                 <button class="identity-card" data-identity="healthier">
-                    <span class="identity-icon">💪</span>
-                    <span class="identity-label">Becoming Healthier</span>
+                    <span class="identity-icon">🌱</span>
+                    <span class="identity-label">Feeling Better</span>
                     <span class="identity-desc">Body and mind renewal</span>
                 </button>
                 <button class="identity-card" data-identity="discipline">
@@ -64,8 +64,8 @@
             </div>
             <div class="why-grid">
                 <button class="why-card" data-why="health">
-                    <span class="why-icon">🏃</span>
-                    <span class="why-label">Health</span>
+                    <span class="why-icon">🌱</span>
+                    <span class="why-label">Feeling Better</span>
                 </button>
                 <button class="why-card" data-why="confidence">
                     <span class="why-icon">✨</span>
@@ -74,10 +74,6 @@
                 <button class="why-card" data-why="relationship">
                     <span class="why-icon">👨‍👩‍👧</span>
                     <span class="why-label">Relationships</span>
-                </button>
-                <button class="why-card" data-why="money">
-                    <span class="why-icon">💰</span>
-                    <span class="why-label">Money</span>
                 </button>
                 <button class="why-card" data-why="discipline">
                     <span class="why-icon">🎯</span>
@@ -212,48 +208,6 @@
             </div>
         </section>
 
-        <!-- Urge Log Card -->
-        <section class="card urge-card" aria-labelledby="urge-title">
-            <div class="card-header">
-                <h2 id="urge-title" class="card-title">Urge Check-In</h2>
-            </div>
-            <div class="urge-content">
-                <p class="urge-question">Did you feel an urge today?</p>
-                <div class="urge-yesno">
-                    <button class="urge-btn urge-yes" id="urgeYesBtn">Yes</button>
-                    <button class="urge-btn urge-no" id="urgeNoBtn">No, all good ✓</button>
-                </div>
-                <div class="urge-details" id="urgeDetails" style="display:none;">
-                    <div class="urge-intensity">
-                        <label class="urge-label">Intensity:</label>
-                        <div class="intensity-buttons">
-                            <button class="intensity-btn" data-intensity="1">1</button>
-                            <button class="intensity-btn" data-intensity="2">2</button>
-                            <button class="intensity-btn" data-intensity="3">3</button>
-                            <button class="intensity-btn" data-intensity="4">4</button>
-                            <button class="intensity-btn" data-intensity="5">5</button>
-                        </div>
-                    </div>
-                    <div class="urge-trigger">
-                        <label class="urge-label">Trigger:</label>
-                        <div class="trigger-buttons">
-                            <button class="trigger-btn" data-trigger="stress">😤 Stress</button>
-                            <button class="trigger-btn" data-trigger="boredom">😑 Boredom</button>
-                            <button class="trigger-btn" data-trigger="loneliness">😔 Loneliness</button>
-                            <button class="trigger-btn" data-trigger="night">🌙 Night</button>
-                            <button class="trigger-btn" data-trigger="custom">✏️ Other</button>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" id="logUrgeBtn">Log Urge</button>
-                </div>
-                <!-- Weekly Insight -->
-                <div class="weekly-insight" id="weeklyInsight" style="display:none;">
-                    <h4 class="insight-title">📊 Weekly Insight</h4>
-                    <div class="insight-stats" id="insightStats"></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Motivational Message Card -->
         <section class="card message-card" aria-labelledby="message-title">
             <div class="card-header">
@@ -292,23 +246,6 @@
                     <div class="stat-label">Total Days</div>
                 </div>
             </div>
-        </section>
-
-        <!-- Premium Upsell Card -->
-        <section class="card premium-card" id="premiumCard">
-            <div class="premium-badge">⭐ Premium</div>
-            <h3 class="premium-title">Unlock Your Full Potential</h3>
-            <p class="premium-desc">Advanced insights, personalized analytics, guided recovery plans & exportable reports.</p>
-            <div class="premium-features">
-                <div class="premium-feature free"><span>✓</span> Counter & Basic Tracking</div>
-                <div class="premium-feature free"><span>✓</span> Daily Inspiration</div>
-                <div class="premium-feature free"><span>✓</span> Crisis Mode</div>
-                <div class="premium-feature locked"><span>🔒</span> Advanced Insights</div>
-                <div class="premium-feature locked"><span>🔒</span> Personalized Analytics</div>
-                <div class="premium-feature locked"><span>🔒</span> Guided Recovery Plans</div>
-                <div class="premium-feature locked"><span>🔒</span> Exportable Reports</div>
-            </div>
-            <button class="btn btn-premium" id="premiumBtn">Upgrade to Premium</button>
         </section>
 
         <!-- Action Buttons -->
@@ -356,68 +293,6 @@
     </div>
 </div>
 
-<!-- Crisis Mode Modal -->
-<div class="modal" id="crisisModal" role="dialog" aria-labelledby="crisis-modal-title" aria-modal="true">
-    <div class="modal-overlay" aria-hidden="true"></div>
-    <div class="modal-container">
-        <div class="modal-content crisis-modal-content">
-            <button class="modal-close-btn" id="closeCrisisBtn" aria-label="Close crisis mode">✕</button>
-
-            <!-- Phase 1: Breathing -->
-            <div class="crisis-phase active" id="crisisPhase1">
-                <div class="crisis-modal-header">
-                    <div class="crisis-modal-icon">🫁</div>
-                    <h3 id="crisis-modal-title" class="modal-title">You reached out. That's brave.</h3>
-                    <p class="modal-text">Let's slow down together. Follow the breathing guide.</p>
-                    <p class="crisis-disclaimer">This is a self-help tool. If you are in immediate danger, contact local emergency services.</p>
-                </div>
-                <div class="breathing-guide" id="breathingGuide">
-                    <div class="breathing-circle" id="breathingCircle">
-                        <span class="breathing-text" id="breathingText">Breathe In</span>
-                    </div>
-                    <p class="breathing-instruction" id="breathingInstruction">4 seconds in...</p>
-                </div>
-                <div class="crisis-timer-display">
-                    <span id="crisisTimerDisplay">60</span> seconds
-                </div>
-                <button class="btn btn-primary" id="skipBreathingBtn">Skip to delay timer →</button>
-            </div>
-
-            <!-- Phase 2: Delay Timer -->
-            <div class="crisis-phase" id="crisisPhase2">
-                <div class="crisis-modal-header">
-                    <div class="crisis-modal-icon">⏱️</div>
-                    <h3 class="modal-title">Hold on for 10 minutes.</h3>
-                    <p class="modal-text">Urges peak and pass. Just wait this out.</p>
-                </div>
-                <div class="delay-timer-circle">
-                    <svg class="delay-timer-svg" viewBox="0 0 120 120">
-                        <circle class="delay-timer-bg" cx="60" cy="60" r="52"/>
-                        <circle class="delay-timer-progress" id="delayTimerProgress" cx="60" cy="60" r="52"
-                            stroke-dasharray="326.7" stroke-dashoffset="0"/>
-                    </svg>
-                    <div class="delay-timer-text">
-                        <span id="delayTimerDisplay">10:00</span>
-                        <small>remaining</small>
-                    </div>
-                </div>
-                <button class="btn btn-outline" id="skipDelayBtn">I made it through →</button>
-            </div>
-
-            <!-- Phase 3: Reflection -->
-            <div class="crisis-phase" id="crisisPhase3">
-                <div class="crisis-modal-header">
-                    <div class="crisis-modal-icon">💪</div>
-                    <h3 class="modal-title">You did it. That urge passed.</h3>
-                    <p class="modal-text">Take a moment to reflect on what helped you through.</p>
-                </div>
-                <textarea class="reflection-input" id="crisisReflectionInput" placeholder="What helped you get through this moment?..." maxlength="300" rows="4"></textarea>
-                <button class="btn btn-primary" id="saveCrisisReflectionBtn">Save & Return</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Milestone Modal -->
 <div class="modal" id="milestoneModal" role="dialog" aria-modal="true">
     <div class="modal-overlay" aria-hidden="true"></div>
@@ -442,16 +317,6 @@
         <span class="toast-message" id="toastMessage">Success!</span>
     </div>
 </div>
-
-<!-- Fixed Floating Crisis Button — always visible, no scroll needed -->
-<button class="crisis-btn" id="crisisBtn" aria-label="Need Help - Crisis Mode">
-    <span class="crisis-icon">🆘</span>
-    <span class="crisis-text">
-        <strong>Need Help?</strong>
-        <small>Tap for immediate support</small>
-    </span>
-    <span class="crisis-arrow">→</span>
-</button>
 
 <!-- Info Modal -->
 <div class="modal" id="infoModal" role="dialog" aria-modal="true">

@@ -11,14 +11,14 @@
 
 const IDENTITY_CONFIG = {
     healthier: {
-        subtitle: "Your body is healing, one day at a time",
+        subtitle: "Every day you feel a little better than before",
         color: "#10b981",
         messages: [
-            "Every clean day is your body rebuilding itself from the inside out.",
-            "Your cells are celebrating your choices right now.",
-            "Physical healing and mental strength are growing together in you.",
-            "You are giving your body the gift it deserves: freedom.",
-            "Health is not a destination — it's the path you're walking right now."
+            "Every clean day is your body and mind rebuilding themselves.",
+            "You are giving yourself the gift of feeling better.",
+            "Small consistent steps create real, lasting change.",
+            "You are choosing to feel better today. That matters.",
+            "Feeling better starts with one good decision at a time."
         ]
     },
     discipline: {
@@ -39,7 +39,7 @@ const IDENTITY_CONFIG = {
             "Freedom is not given — it's reclaimed one day at a time.",
             "You are breaking patterns that took years to form. That's extraordinary.",
             "The chains are loosening. Keep going.",
-            "Liberation lives on the other side of this urge. Push through.",
+            "Liberation lives on the other side of this moment. Push through.",
             "You chose yourself today. That is what freedom looks like."
         ]
     },
@@ -48,7 +48,7 @@ const IDENTITY_CONFIG = {
         color: "#8b5cf6",
         messages: [
             "Control is not about being perfect — it's about coming back.",
-            "Every 'no' you say to an urge is a 'yes' to your power.",
+            "Every 'no' you say is a 'yes' to your power.",
             "You are the architect of your habits. Build intentionally.",
             "Mastery starts exactly where you are: with this one choice.",
             "Your decisions today are writing the story of tomorrow."
@@ -57,10 +57,9 @@ const IDENTITY_CONFIG = {
 };
 
 const WHY_CONFIG = {
-    health:       { icon: "🏃", label: "Your health" },
+    health:       { icon: "🏃", label: "Your wellbeing" },
     confidence:   { icon: "✨", label: "Your confidence" },
     relationship: { icon: "👨‍👩‍👧", label: "Your relationships" },
-    money:        { icon: "💰", label: "Financial freedom" },
     discipline:   { icon: "🎯", label: "Your discipline" },
     custom:       { icon: "❤️", label: "Your personal reason" }
 };
